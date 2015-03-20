@@ -1,0 +1,79 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="wrap jj">
+  <div class="common-form">
+    <form method="post" class="J_ajaxForm" action="#">
+      <div class="table_list">
+	    <table class="table table-hover">
+	        <thead>
+	          <tr>
+	            <th align='center'>ID</th>
+	            <th>姓名</th>
+	            <th>企业名称</th>
+	            <!--<th>头像</th>-->
+				  <th>会员类型</th>
+
+				  <th>E-mail</th>
+	            <th>注册时间</th>
+	            <th>最后登录时间</th>
+	            <th>最后登录IP</th>
+	            <th>状态</th>
+				<th>会员详情</th>
+	            <th align='center'>操作</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	        	<php>$user_statuses=array("0"=>"已拉黑","1"=>"正常","2"=>"未验证");</php>
+	        	<foreach name="lists" item="vo">
+	        	<tr>
+	            <td align='center'>{$vo.id}</td>
+	            <td>{$vo.user_login|default='第三方用户'}</td>
+	            <td>{$vo.buss_name}</td>
+	            <!--<td><img width="25" height="25" src="{:U('user/public/avatar',array('id'=>$vo['id']))}" /></td>-->
+
+					<php> $rolename=null;</php>
+					<foreach name="roles" item="vorole">
+						<php>
+							if($vo['role_id'] == $vorole['id'])
+							{
+							   $rolename =$vorole['name'];
+							}
+
+						</php>
+					</foreach>
+
+					<if condition="empty($rolename)">
+						<td><a href="{:U('indexadmin/selectrole',array('role_id'=>$vo['role_id'],'id'=>$vo['id']))}"  >[未设置]</a></td>
+
+						<else/>
+						<td><a href="{:U('indexadmin/selectrole',array('role_id'=>$vo['role_id'],'id'=>$vo['id']))}"  >{$rolename}</a></td>
+
+					</if>
+
+
+					<td>{$vo.user_email}</td>
+	            <td>{$vo.create_time}</td>
+	            <td>{$vo.last_login_time}</td>
+	            <td>{$vo.last_login_ip}</td>
+	            <td>{$user_statuses[$vo['user_status']]}</td>
+				<!-- <a href="javascript:open_iframe_dialog('{:u('indexadmin/buss',array('id'=>$vo['id']))}','评论列表')">查看评论</a> |
+ -->
+					<td><a href="javascript:open_iframe_dialog('{:U('indexadmin/buss',array('id'=>$vo['id']))}','会员企业信息详情')" >查看</a>|<a href="{:u('indexadmin/bussedit',array('id'=>$vo['id']))}" >修改</a></td>
+	             <td align='center'>
+		            <a href="{:U('indexadmin/ban',array('id'=>$vo['id']))}" class="J_ajax_dialog_btn" data-msg="您确定要拉黑此用户吗？">拉黑</a>|
+					 <a href="{:U('indexadmin/cancelban',array('id'=>$vo['id']))}" class="J_ajax_dialog_btn" data-msg="您确定要启用此用户吗？">启用</a>
+		        </td>
+	          	</tr>
+	          	</foreach>
+			</tbody>
+	      </table>
+	      <div class="pagination">{$page}</div>
+  </div>
+    </form>
+  </div>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+<script>
+</script>
+</body>
+</html>

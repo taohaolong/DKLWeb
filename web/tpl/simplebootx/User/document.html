@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{$site_name}</title>
+    <meta name="keywords" content="{$site_seo_keywords}" />
+    <meta name="description" content="{$site_seo_description}">
+    <meta name="author" content="dkl">
+    <tc_include file="Public:head" />
+</head>
+
+<body class="body-white" id="top">
+<tc_include file="Public:nav" />
+
+
+<div class="container tc-main">
+    <div class="row">
+        <div class="span3">
+            <tc_include file="User:doclistnav"/>
+        </div>
+        <div class="span9">
+            <div class="tabs">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#one" data-toggle="tab"><i class="fa fa-star"></i> 企业文档</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="one">
+                        <h2>{$post_title}</h2>
+
+                        <hr>
+                        <div id="article_content">
+                            {$post_content}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <tc_include file="Public:footer" />
+
+</div>
+<!-- /container -->
+
+<tc_include file="Public:scripts" />
+</body>
+</html>

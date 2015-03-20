@@ -1,0 +1,7 @@
+<div class="list-group">
+    <foreach name="doclist" item="vo">
+        <php>$i++</php>
+        <a class="list-group-item" href="{:leuu('document/index',array('id'=>$vo['id']))}">
+            <i class="fa fa-file"></i> {$i}.{$vo.post_title}</a>
+    </foreach>
+</div>

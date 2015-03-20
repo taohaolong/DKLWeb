@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>{$site_seo_title} {$site_name}</title>
+		<meta name="keywords" content="{$site_seo_keywords}" />
+		<meta name="description" content="{$site_seo_description}">
+		<tc_include file="Public:head" />
+		<link href="__TMPL__Public/css/slippry/slippry.css" rel="stylesheet">
+		<style>
+			.caption-wraper{position: absolute;left:50%;bottom:2em;}
+			.caption-wraper .caption{
+			position: relative;left:-50%;
+			background-color: rgba(0, 0, 0, 0.54);
+			padding: 0.4em 1em;
+			color:#fff;
+			-webkit-border-radius: 1.2em;
+			-moz-border-radius: 1.2em;
+			-ms-border-radius: 1.2em;
+			-o-border-radius: 1.2em;
+			border-radius: 1.2em;
+			}
+			@media (max-width: 767px){
+				.sy-box{margin: 12px -20px 0 -20px;}
+				.caption-wraper{left:0;bottom: 0.4em;}
+				.caption-wraper .caption{
+				left: 0;
+				padding: 0.2em 0.4em;
+				font-size: 0.92em;
+				-webkit-border-radius: 0;
+				-moz-border-radius: 0;
+				-ms-border-radius: 0;
+				-o-border-radius: 0;
+				border-radius: 0;}
+			}
+		</style>
+	</head>
+<body class="body-white">
+<tc_include file="Public:nav" />
+
+<php>
+$home_slides=sp_getslide("portal_index");
+
+$home_slides=empty($home_slides)?$default_home_slides:$home_slides;
+</php>
+<ul id="homeslider" class="unstyled">
+	<foreach name="home_slides" item="vo">
+	<li>
+		<div class="caption-wraper">
+			<div class="caption">{$vo.slide_name}</div>
+		</div>
+		<a href="{$vo.slide_url}"><img src="{:sp_get_asset_upload_path($vo['slide_pic'])}" alt=""></a>
+	</li>
+	</foreach>
+</ul>
+<div class="container">
+	
+	<div>
+		<h1 class="text-center">北京德康莱安全卫生技术发展有限公司</h1>
+		<h3 class="text-center">北京德康莱安全卫生技术发展有限公司</h3>
+	</div>
+
+
+
+	<div class="row">
+		<div class="span4">
+			<h2 class="font-large nospace "><i class="fa fa-bars"></i> 公司简介</h2>
+			<p>北京德康莱安全卫生技术发展有限公司成立于2005年，作为专业的职业卫生技术服务机构，我公司在积极开展 “职业病有害因素检测” 和 “建设项目职业病危害评价” 工作的同时，也非常重视安全职业卫生知识的培训，针对不同性质的企业和劳动者，提供与之相适应的安全职业卫生管理体系和丰富多彩的培训服务，在众多企业客户中树立了良好的品牌形象。随着业务的持续发展，我院将进一步壮大专业技术服务队伍，以高效优质的工作服务于安全职业卫生市场，以满足客户更多层次的需要。</p>
+		</div>
+
+		<div class="span4">
+			<h2 class="font-large nospace"><i class="fa  fa-lightbulb-o"></i> 公司动态</h2>
+			<php>
+				$lastdongtai=sp_sql_posts("cid:$portal_index_dongtai;field:post_title,post_date,post_excerpt,tid,smeta;order:listorder asc;limit:4;");
+			</php>
+			<foreach name="lastdongtai" item="vo">
+				<php>$smeta=json_decode($vo['smeta'],true);</php>
+			<dl>
+				<dt><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></dt>
+				<!--<dd>[{$vo.post_date}]</dd>-->
+			</dl>
+			</foreach>
+
+		</div>
+
+		<div class="span4">
+			<h2 class="font-large nospace"><i class="fa fa-newspaper-o"></i> 公司业务</h2>
+			<p>我公司2010年9月取得了北京市质量技术监督局《资质认定计量认证证书》；2010年10月获得北京市卫生局《北京市职业卫生技术机构（建设项目职业病危害评价、职业病危害因素检测）》资质，公司积极开展了“职业病有害因素检测”和“建设项目职业病危害评价”工作。
+与此同时，本公司非常重视安全职业卫生知识的培训，针对不同性质的企业和劳动者，帮助建立适宜的安全职业卫生管理体系，提供丰富多彩的培训服务，树立良好的品牌形象。</p>
+		</div>
+
+	</div>
+
+
+	<div class="row">
+		<div class="span4">
+			<h2 class="font-large nospace"><i class="fa  fa-lightbulb-o"></i> 经营业务</h2>
+
+        	<php>
+		     	$lastyewu=sp_sql_posts("cid:$portal_index_yewu;field:post_title,post_date,post_excerpt,tid,smeta;order:listorder asc;limit:5;");
+			</php>
+			<foreach name="lastyewu" item="vo">
+				<dl >
+					<dt><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></dt>
+					<!--<dd>[{$vo.post_date}]</dd>-->
+				</dl>
+			</foreach>
+
+
+		</div>
+		<div class="span4 ">
+		<h2 class="font-large nospace"><i class="fa fa-cubes"></i> 公司产品</h2>
+
+			<php>
+				$lastyewu=sp_sql_posts("cid:$portal_index_pruc;field:post_title,post_date,post_excerpt,tid,smeta;order:listorder asc;limit:4;");
+			</php>
+			<foreach name="lastyewu" item="vo">
+				<dl >
+					<dt><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></dt>
+					<!--<dd>[{$vo.post_date}]</dd>-->
+				</dl>
+			</foreach>
+
+
+		</div>
+		<div class="span4">
+			<h2 class="font-large nospace"><i class="fa fa-glass"></i> 实验环境</h2>
+			<php>
+				$lastyewu=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_date,post_excerpt,tid,smeta;order:listorder asc;limit:5;");
+			</php>
+			<foreach name="lastyewu" item="vo">
+				<dl >
+					<dt><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></dt>
+					               
+					<!--<dd>[{$vo.post_date}]</dd>-->
+				</dl>
+			</foreach>
+
+		</div>
+	</div>
+    
+	<div>
+		<h1 class="text-center">实验环境</h1>
+		<h3 class="text-center">Last News</h3>
+	</div>
+	<php>
+		$lastnews=sp_sql_posts("cid:$portal_index_lastnews;field:post_title,post_excerpt,tid,smeta;order:listorder asc;limit:4;"); 
+	</php>
+	<div class="row">
+		<foreach name="lastnews" item="vo">
+		<php>$smeta=json_decode($vo['smeta'],true);</php>
+		<div class="span3">
+			<div class="tc-gridbox">
+				<div class="header">
+					<div class="item-image">
+						<a href="{:leuu('article/index',array('id'=>$vo['tid']))}">
+							<if condition="empty($smeta['thumb'])"> 
+								<img src="__TMPL__Public/images/default_tupian1.png" class="img-responsive" alt="{$vo.post_title}"/>
+							<else /> 
+								<img src="{:sp_get_asset_upload_path($smeta['thumb'])}" class="img-responsive img-thumbnail" alt="{$vo.post_title}" />
+							</if>
+						</a>
+					</div>
+					<h3><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{$vo.post_title}</a></h3>
+					
+				</div>
+				<div class="body">
+					<p><a href="{:leuu('article/index',array('id'=>$vo['tid']))}">{:msubstr($vo['post_excerpt'],0,32)}</a></p>
+				</div>
+			</div>
+		</div>
+		</foreach>
+	</div>
+<tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+<script src="__TMPL__Public/js/slippry.min.js"></script>
+<script>
+$(function() {
+	var demo1 = $("#homeslider").slippry({
+		transition: 'fade',
+		useCSS: true,
+		captions: false,
+		speed: 1000,
+		pause: 3000,
+		auto: true,
+		preload: 'visible'
+	});
+});
+</script>
+</body>
+</html>

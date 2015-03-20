@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{$post_title} {$site_name} </title>
+    <meta name="keywords" content="{$post_keywords}" />
+    <meta name="description" content="{$post_excerpt}">
+    <tc_include file="Public:head" />
+    <style>
+        #article_content img{height:auto !important}
+    </style>
+
+
+</head>
+
+<body onload="init();" class="body-white J_scroll_fixed">
+<tc_include file="Public:nav" />
+
+<div class="wrap J_check_wrap">
+
+    <div class="row">
+        <div class="span2">
+
+        </div>
+
+        <div class="span10">
+            <div class="common-form">
+
+        <!--<form class="form-inline" class="form-horizontal" method="post" action="#">-->
+        <form class="form-horizontal J_ajaxForm" name="myform" id="myform" action="{:u('Index/finish')}" method="post">
+            <input type="hidden" name="gaouserid" value="{$id}"/>
+            <input type="hidden"  name="user_name" value="{$user_name}"/>
+
+            <div class="panel-body">
+
+                <div class="table-responsive">
+                    <table class="table mb40">
+                        <tbody>
+
+                        <tr>
+                            <td><label>姓名</label></td><td>{$user_name}<td>
+                            <td><label>性别</label></td><td>
+                            <php>
+                                $sexs=array("0"=>"保密","1"=>"男","2"=>"女");
+
+                            </php>
+                            {$sexs[$sex]}
+
+                        </td>
+                            <td><label>出生日期</label></td><td>{$birthday}</td>
+                            <td><label>身份证号</label></td> <td>{$cardID}</td>
+                        </tr>
+                        <tr>
+                            <td><label>单位编号</label></td><td>{$buss_num}<td>
+                            <td><label>联系电话</label></td><td>{$user_tel}</td>
+                            <td><label>住址</label></td><td>{$user_address}</td>
+                            <td><label>电子邮件</label></td> <td>{$user_email}</td>
+                        </tr>
+                        <tr>
+                            <td><label>QQ</label></td><td>{$user_QQ}<td>
+                            <td><label>微信</label></td><td>{$user_weichat}</td>
+
+                            <td></td><td></td>    <td></td><td></td>
+                        </tr>
+
+                        <tr>
+                            <td><label>服务选择</label></td>
+                            <td><php>
+                                $servers=array("1"=>"本地就医","2"=>"快速检查(建设中)","4"=>"专家会诊(建设中)",
+                                "3"=>"快速住院(建设中)","5"=>"快速手术(建设中)");
+                            </php>
+                                <select style="WIDTH: 120px" id="input-svr" name="svr">
+                                    <foreach name="servers" item="vo">
+                                        <php>$sexselected=$key==$svr?"selected":"";</php>
+                                        <option value="{$key}" {$sexselected}>{$vo}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+                            <td>医院</td>
+                            <td>
+                                <select style="WIDTH: 120px" name="hospital_name"  class="normal_select">
+                                    <foreach name="hospitalvar" item="vo">
+                                        <option value="{$vo.hospital_name}">{$vo.hospital_name}</option>
+                                    </foreach>
+
+                                </select>
+                            </td>
+
+                            <td>科室</td>
+                            <td>
+
+                                <select style="WIDTH: 120px" name="clinic_name"  class="normal_select">
+                                    <foreach name="clinicvar" item="vo">
+                                        <option value="{$vo.clinic_name}">{$vo.clinic_name}</option>
+                                    </foreach>
+
+                                </select>
+
+                            </td>
+
+                            <td>医生</td>
+                            <td>
+                                <select style="WIDTH: 120px" name="doctor_type"  class="normal_select">
+                                    <foreach name="doctorvar" item="vo">
+                                        <option value="{$vo.doctor_type}">{$vo.doctor_type}</option>
+                                    </foreach>
+
+                                </select>
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td>基本病情描述</td>
+                        </tr>
+                        <tr>
+                           <td> <textarea rows="15" placeholder="请简要描述你的病情" cols="200">
+
+                            </textarea></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div><!-- panel-body -->
+
+            <div class="panel-footer">
+                <button class="btn btn-primary">完成</button>
+
+            </div>
+        </form>
+</div>
+            </div>
+
+
+    </div>
+</div>
+
+<tc_include file="Public:scripts"/>
+<script src="__TMPL__Public/js/slippry.min.js"></script>
+<script>
+    $(function() {
+        var demo1 = $("#homeslider").slippry({
+            transition: 'fade',
+            useCSS: true,
+            captions: false,
+            speed: 1000,
+            pause: 3000,
+            auto: true,
+            preload: 'visible'
+        });
+    });
+</script>
+</body>
+</html>

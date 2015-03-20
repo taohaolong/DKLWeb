@@ -1,0 +1,90 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="wrap jj">
+	<h6 class="well">企业名称：{$buss_name}</h6>
+	<div class="common-form">
+		<form method="post" class="form-horizontal J_ajaxForm" action="{:U('indexadmin/bussedit_post',array('id'=>$id))}">
+			<div class="table_list">
+				<table cellpadding="2" cellspacing="2" width="100%">
+					<tbody>
+					<!--<tr>
+						<td width="180">用户名:</td>
+						<td><input type="text" class="input" readonly="true"  name="user_login"value="{$user_login}"></td>
+						<td>密码:</td>
+						<td><input type="password" class="input" name="user_pass"value="" placeholder="******"></td>
+					</tr>-->
+					<tr>
+						<td>企业名称:</td>
+						<td><input type="text" class="input" name="buss_name" value="{$buss_name}"></td>
+						<td>营业执照号:</td>
+						<td><input type="text" class="input" name="buss_ID" value="{$buss_ID}"></td>
+					</tr>
+					<tr>
+						<td>地址:</td>
+						<td><input type="text" class="input" name="buss_addr" value="{$buss_addr}"></td>
+						<td>电话:</td>
+						<td><input type="text" class="input" name="buss_tel" value="{$buss_tel}"></td>
+
+					<tr>
+						<td>负责人:</td>
+						<td><input type="text" class="input" name="buss_dutyer" value="{$buss_dutyer}"></td>
+						<td>联系人:</td>
+						<td><input type="text" class="input" name="buss_conacter" value="{$buss_conacter}"></td>
+					</tr>
+					<tr>
+						<td>企业性质:</td>
+						<td><input type="text" class="input" name="buss_property" value="{$buss_property}"></td>
+						<td>企业人数:</td>
+						<td><input type="text" class="input" name="buss_counts" value="{$buss_counts}"></td>
+					</tr>
+					<tr>
+						<td>所属区县:</td>
+						<td><input type="text" class="input" name="buss_area" value="{$buss_area}"></td>
+						<td>所属行业:</td>
+						<td><input type="text" class="input" name="buss_trade" value="{$buss_trade}"></td>
+					</tr>
+					<tr>
+						<td>涉及职业病危害岗位数:</td>
+						<td><input type="text" class="input" name="buss_jobs" value="{$buss_jobs}"></td>
+						<td>涉及职业病危害员工数:</td>
+						<td><input type="text" class="input" name="buss_jobwrongs" value="{$buss_jobwrongs}"></td>
+					</tr>
+					<tr>
+						<td>涉及到的职业病危害因素:</td>
+						<td><input type="text" class="input" name="buss_wrong" value="{$buss_wrong}"></td>
+						<td>所属业务员:</td>
+						<td><input type="text" class="input" name="buss_sales" value="{$buss_sales}"></td>
+					</tr>
+					<tr>
+						<td>税务登记号:</td>
+						<td><input type="text" class="input" name="$buss_regsitNum" value="{$buss_regsitNum}"></td>
+						<td>所属街乡:</td>
+						<td><input type="text" class="input" name="buss_street" value="{$buss_street}"></td>
+					</tr>
+					<tr>
+						<td>传真:</td>
+						<td><input type="text" class="input" name="buss_fax" value="{$buss_fax}"></td>
+						<td>开票信息:</td>
+						<td><input type="text" class="input" name="buss_tickinfo" value="{$buss_tickinfo}"</td>
+					</tr>
+					<tr>
+						<td>企业年营业额:</td>
+						<td><input type="text" class="input" name="buss_turnover" value="{$buss_turnover}"></td>
+						<td>邮箱:</td>
+						<td><input type="text" class="input" name="user_email" value="{$user_email}"></td>
+					</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<div class="form-actions">
+				<input type="hidden" name="id" value="{$id}"/>
+				<button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">更新</button>
+				<a class="btn" href="__URL__">返回</a>
+			</div>
+		</form>
+	</div>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>

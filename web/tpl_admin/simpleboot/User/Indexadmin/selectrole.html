@@ -1,0 +1,24 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+	<h6 class="well">登录名：{$loginname}</h6>
+
+		<li class="active"><a href="javascript:;">更改会员类型</a></li>
+
+
+	<form class="well form-search" method="post" action="{:U('indexadmin/setrole',array('usrid'=>$usrid,
+																'role_id'=>$role_id))}">
+		<select name="role_id" class="normal_select">
+			<foreach name="roles" item="vo">
+				<php>$role_id_selected=$vo['id']==$role_id?"selected":"";</php>
+				<option value="{$vo.id}" {$role_id_selected}>{$vo.name}</option>
+			</foreach>
+		</select>
+		<input type="submit" class="btn"  value="保存"/>
+		<a class="btn" href="{:U('Indexadmin/index')}">返回</a>
+		</form>
+
+	</div>
+
+<script src="__ROOT__/statics/js/common.js"></script>
+</body>

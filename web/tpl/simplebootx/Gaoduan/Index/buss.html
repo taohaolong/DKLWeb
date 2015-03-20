@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{$post_title} {$site_name} </title>
+    <meta name="keywords" content="{$post_keywords}" />
+    <meta name="description" content="{$post_excerpt}">
+    <tc_include file="Public:head" />
+    <style>
+        #article_content img{height:auto !important}
+    </style>
+</head>
+
+<body class="body-white" id="top">
+<tc_include file="Public:nav" />
+
+<div class="wrap jj">
+
+    <div class="row">
+        <div class="span3">
+
+        </div>
+
+        <div class="span9 offset4">
+
+
+            <div class="common-form">
+        <form method="post" class="form-horizontal J_ajaxForms" action="{:U('gaoduan/index/findBian')}">
+            <div class="control-group">
+
+            <!--    <div class="controls">*企业编号请向企业有关人员索要</div>-->
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_username">企业名称</label>
+                <div class="controls">
+                    <input type="text" id="input_username" name="buss_name" placeholder="请输入企业名称" class="span3">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="input_username">身份证号</label>
+                <div class="controls">
+                    <input type="text" id="input_usertel" name="cardID" placeholder="请输入身份证号" class="span3">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="input_repassword"></label>
+                <div class="controls">
+                    <button class="btn btn-primary J_ajax_submit_btn" type="submit">确定(下一步)</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+            </div>
+        </div>
+</div>
+    </div>
+
+
+</div>
+
+<tc_include file="Public:scripts"/>
+<script src="__TMPL__Public/js/slippry.min.js"></script>
+<script>
+    $(function() {
+        var demo1 = $("#homeslider").slippry({
+            transition: 'fade',
+            useCSS: true,
+            captions: false,
+            speed: 1000,
+            pause: 3000,
+            auto: true,
+            preload: 'visible'
+        });
+    });
+</script>
+</body>
+</html>

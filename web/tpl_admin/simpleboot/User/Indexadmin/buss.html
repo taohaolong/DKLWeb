@@ -1,0 +1,90 @@
+<admintpl file="header"/>
+<body class="J_scroll_fixed">
+<div class="wrap jj">
+	<h6 class="well">企业名称：{$buss_name}</h6>
+	<div class="common-form">
+		<form method="post" class="form-horizontal J_ajaxForm" >
+			<div class="table_list">
+				<table cellpadding="2" cellspacing="2" class="table table-bordered" width="100%">
+					<tbody>
+					<!--<tr>
+						<td width="180">用户名:</td>
+						<td><lable readonly="true"  name="user_login"value="{$user_login}"></td>
+						<td>密码:</td>
+						<td><input type="password" class="input" name="user_pass" placeholder="******"></td>
+					</tr>-->
+					<tr>
+						<td>企业名称:</td>
+						<td><label>{$buss_name}</label></td>
+						<td>营业执照号:</td>
+						<td><lable name="buss_ID" >{$buss_ID}</lable></td>
+					</tr>
+					<tr>
+						<td>地址:</td>
+						<td><lable name="buss_addr" >{$buss_addr}</lable></td>
+						<td>电话:</td>
+						<td><lable name="buss_tel" >{$buss_tel}</lable></td>
+
+					<tr>
+						<td>负责人:</td>
+						<td><lable name="buss_dutyer" >{$buss_dutyer}</lable></td>
+						<td>联系人:</td>
+						<td><lable name="buss_conacter" >{$buss_conacter}</lable></td>
+					</tr>
+					<tr>
+						<td>企业性质:</td>
+						<td><label>{$buss_property}</label></td>
+						<td>企业人数:</td>
+						<td><lable name="buss_counts" >{$buss_counts}</lable></td>
+					</tr>
+					<tr>
+						<td>所属区县:</td>
+						<td><lable name="buss_area" >{$buss_area}</lable></td>
+						<td>所属行业:</td>
+						<td><lable name="buss_trade" >{$buss_trade}</lable></td>
+					</tr>
+					<tr>
+						<td>涉及职业病危害岗位数:</td>
+						<td><lable name="buss_jobs" >{$buss_jobs}</lable></td>
+						<td>涉及职业病危害员工数:</td>
+						<td><lable name="buss_jobwrongs" >{$buss_jobwrongs}</lable></td>
+					</tr>
+					<tr>
+						<td>涉及到的职业病危害因素:</td>
+						<td><lable name="buss_wrong" >{$buss_wrong}</lable></td>
+						<td>所属业务员:</td>
+						<td><lable name="buss_sales" >{$buss_sales}</lable></td>
+					</tr>
+					<tr>
+						<td>税务登记号:</td>
+						<td><lable name="buss_regsitNum" >{$buss_regsitNum}</lable></td>
+						<td>所属街乡:</td>
+						<td><lable name="buss_street" >{$buss_street}</lable></td>
+					</tr>
+					<tr>
+						<td>传真:</td>
+						<td><lable name="buss_fax" >{$buss_fax}</lable></td>
+						<td>开票信息:</td>
+						<td><lable name="buss_tickinfo" >{$buss_tickinfo}</lable></td>
+					</tr>
+					<tr>
+						<td>企业年营业额:</td>
+						<td><lable name="buss_turnover" >{$buss_turnover}</lable></td>
+						<td>邮箱:</td>
+						<td><lable name="user_email" >{$user_email}</lable></td>
+					</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<!--<div class="form-actions">
+				<input type="hidden" name="id" value="{$id}"/>
+				<button type="submit" class="btn btn-primary btn_submit J_ajax_submit_btn">更新</button>
+				<a class="btn" href="__URL__">返回</a>
+			</div>-->
+		</form>
+	</div>
+</div>
+<script src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>

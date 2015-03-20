@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>{$post_title} {$site_name} </title>
+    <meta name="keywords" content="{$post_keywords}" />
+    <meta name="description" content="{$post_excerpt}">
+    <tc_include file="Public:head" />
+    <style>
+        #article_content img{height:auto !important}
+    </style>
+</head>
+
+<body class="body-white" id="top">
+<tc_include file="Public:nav" />
+
+<div class="container tc-main">
+    <div class="row">
+        <div class="span3">
+
+        </div>
+
+        <div class="span9">
+        <!--<form class="form-inline" class="form-horizontal" method="post" action="#">-->
+        <form class="form-horizontal J_ajaxForm" name="myform" id="myform" action="{:u('Index/add_post')}" method="post">
+
+            <div class="control-group">
+
+                <div class="controls"><h3>您第一次使用,请完善您的信息</h3></div>
+            </div>
+                <div class="table-responsive">
+                    <table cellpadding="2" cellspacing="2" width="100%">
+
+                    <tbody>
+                    <input type="hidden" class="input" name="cardID" value="{$cardID}">
+                    <tr>
+
+
+                        <td>单位编号:</td>
+                        <td><input type="text" class="input" name="buss_num" readonly="true"  value="{$buss_num}"></td>
+                        <td>单位名称:</td>
+                        <td><input type="text" class="input" name="buss_name" readonly="true" value="{$buss_name}"></td>
+
+                    </tr>
+                        <tr>
+                            <td>姓名:</td>
+                            <td><input type="text" class="input" name="user_name" value=""></td>
+
+                            <td>性别:</td>
+                            <td><php>
+                                $sexs=array("1"=>"男","2"=>"女");
+                            </php>
+                                <select id="input-sex" name="sex">
+                                    <foreach name="sexs" item="vo">
+                                        <php>$sexselected=$key==$sex?"selected":"";</php>
+                                        <option value="{$key}" {$sexselected}>{$vo}</option>
+                                    </foreach>
+                                </select>
+                            </td>
+
+
+                            </tr>
+                            <!--<tr>
+                                <td>出生年月:</td>
+                            <td>
+                                    <input class="J_date" type="text" id="input-birthday" placeholder="2013-01-04"
+                                           name="birthday" value="{$birthday}"
+
+                            </td>
+                            <td>身份证号:</td>
+                            <td><input type="text" class="input" name="cardID" value="{$cardID}"></td>-->
+                        </tr>
+
+                        <tr>
+                            <td>联系电话:</td>
+                            <td><input type="text" class="input" name="user_tel" value=""></td>
+                            <td>电子邮件:</td>
+                            <td><input type="text" class="input" name="user_email" value=""></td>
+<!--                            <td>现住址:</td>
+                            <td><input type="text" class="input" name="user_address" value=""></td>-->
+
+
+                        <tr>
+                        <td>微信:</td>
+                        <td><input type="text" class="input" name="user_weichat" value=""></td>
+
+                        <td>QQ:</td>
+                            <td><input type="text" class="input" name="user_QQ" value=""></td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            <div class="panel-footer">
+                <button class="btn btn-primary">提交</button>
+                <button type="reset" class="btn btn-default">重置</button>
+            </div>
+        </form>
+    </div>
+</div>
+        </div><!-- panel-body -->
+
+    </div>
+
+
+</div>
+
+<tc_include file="Public:scripts"/>
+<script src="__TMPL__Public/js/slippry.min.js"></script>
+<script>
+    $(function() {
+        var demo1 = $("#homeslider").slippry({
+            transition: 'fade',
+            useCSS: true,
+            captions: false,
+            speed: 1000,
+            pause: 3000,
+            auto: true,
+            preload: 'visible'
+        });
+    });
+</script>
+</body>
+</html>

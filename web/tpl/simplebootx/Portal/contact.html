@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{$post_title} {$site_name} </title>
+	<meta name="keywords" content="{$post_keywords}" />
+	<meta name="description" content="{$post_excerpt}">
+    <tc_include file="Public:head" />
+    
+    <script src="http://api.map.baidu.com/api?v=1.3"></script>
+    
+	<style>
+	img{
+	max-width: none;
+	}
+	</style>
+</head>
+<body class="body-white">
+<tc_include file="Public:nav" />
+
+<div class="section slice no-padding">
+        <div id="mapCanvas" class="map-canvas no-margin" style="height:400px;">
+        	<script type="text/javascript">
+			   var map = new BMap.Map("mapCanvas");            // 创建Map实例
+			var point = new BMap.Point("116.540286", "39.773613");    // 创建点坐标
+			map.centerAndZoom(point,15);                // 初始化地图,设置中心点坐标和地图级别。
+			map.enableScrollWheelZoom();                  //启用滚轮放大缩小
+			//添加缩放控件
+			map.addControl(new BMap.NavigationControl());  
+			map.addControl(new BMap.ScaleControl());  
+			map.addControl(new BMap.OverviewMapControl()); 
+			
+			var marker = new BMap.Marker(point); // 创建标注 
+			map.addOverlay(marker); // 将标注添加到地图中
+			var infoWindow = new BMap.InfoWindow("德康莱<br/><span class=''>地址：北京经济技术开发区西环南路18号汇龙森科技园B楼二层</span>"); // 创建信息窗口对象
+			marker.openInfoWindow(infoWindow);
+			   </script>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+                    <div class="span6">
+                        <h3 class="section-title">公交路线</h3>
+                        <form class="form-light J_ajaxForm mt-20" role="form" method="post" action="{:u('api/guestbook/addmsg')}">
+                           
+                            
+                            <div class="form-group">
+                             <label>1.乘坐地铁亦庄线在【同济南路】站下车，步行至汇龙森科技园区</label>
+                            </div>
+                             <div class="form-group">
+                              <label>2.乘坐公交846、723、821、927 、专41路凉水河桥北下，步行至汇龙森科技园区</label>
+                            </div>
+                             
+                        </form>
+                    </div>
+                    <div class="span6">
+                        <div class="row">
+                        	<div class="span3">
+                                <h3 class="section-title">联系方式</h3>
+                                <div class="contact-info">
+                                    <h5>地址</h5>
+                                    <p>北京经济技术开发区西环南路18号汇龙森科技园B楼二层</p>
+                                    
+                                    <h5>邮箱</h5>
+                                    <p>{$site_admin_email}</p>
+                                    
+                                    <h5>电话</h5>
+                                    <p>电话：010-51570158 </p>
+                                    <h5>传真</h5>
+                                    <p>010-51570168 </p>
+                                </div>
+                            </div>
+                            <div class="span3">
+                                <h3>Contact</h3>
+                                <div class="contact-info">
+                                    <h5>Address</h5>
+                                    <p>NO.2601  Xie Tu Road, Shanghai China</p>
+                                    
+                                    <h5>Email</h5>
+                                    <p>{$site_admin_email}</p>
+                                    
+                                    <h5>Phone</h5>
+                                    <p>+8621 3112 0248</p>
+                                </div>
+                            </div>
+                        </div>
+                       <!-- <h3 class="section-title">快捷交流</h3>
+                        <p>
+                       点击以下QQ图标，免加好友即时洽谈合作
+                        </p>
+                        <div class="social-media">
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=479923197&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:479923197:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=479923197&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:479923197:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=479923197&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:479923197:51" alt="点击这里给我发消息" title="点击这里给我发消息"/></a>
+                        </div>-->
+                    </div>
+                </div>
+   <tc_include file="Public:footer" />
+</div>
+
+<tc_include file="Public:scripts" />
+
+</body>
+</html>

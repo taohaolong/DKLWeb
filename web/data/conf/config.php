@@ -1,0 +1,15 @@
+<?php	return array (
+  'SP_DEFAULT_THEME' => 'simplebootx',
+  'DEFAULT_THEME' => 'simplebootx',
+  'SP_ADMIN_STYLE' => 'bluesky',
+  'URL_MODEL' => '0',
+  'URL_HTML_SUFFIX' => '',
+  'UCENTER_ENABLED' => 0,
+  'COMMENT_NEED_CHECK' => 0,
+  'SP_MAIL_ADDRESS' => 'dkltest@163.com',
+  'SP_MAIL_SMTP' => 'smtp.163.com',
+  'SP_MAIL_LOGINNAME' => 'dkltest@163.com',
+  'SP_MAIL_PASSWORD' => 'dkl2015',
+  'SP_MEMBER_EMAIL_ACTIVE' => 1,
+    'SP_SEND_MAIL_ADDRESS'=>'taohaodev@163.com',
+);?>

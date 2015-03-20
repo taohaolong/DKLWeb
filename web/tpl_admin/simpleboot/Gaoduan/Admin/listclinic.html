@@ -1,0 +1,48 @@
+<admintpl file="header" />
+<body class="J_scroll_fixed">
+<div class="wrap J_check_wrap">
+
+    <form class="J_ajaxForm" action="" method="post">
+        <div class="table_list">
+            <table width="100%" class="table table-hover">
+                <thead>
+                <tr>
+
+                    <th>ID</th>
+                    <th> 科室名称</th>
+
+
+                    <!--<th>操作</th>-->
+                    <!--<th width="45">点击量</th>
+                    <th width="50">摘要</th>
+                    <th width="50">缩略图</th>
+                    <th width="80">发布人</th>
+                    <th width="120"><span>发布时间</span></th>
+                    <th width="45">状态</th>
+                    <th width="120">操作</th>-->
+                </tr>
+                </thead>
+
+                <foreach name="cliniclist" item="vo">
+                    <tr>
+                        <td><a>{$vo.id}</a></td>
+                        <td>
+
+                                <span>{$vo.clinic_name}</span>
+
+                        </td>
+
+                        <td>
+
+                    </tr>
+                </foreach>
+            </table>
+
+
+        </div><!--
+
+    </form>
+</div>
+<script type="text/javascript" src="__ROOT__/statics/js/common.js"></script>
+</body>
+</html>
